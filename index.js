@@ -37,7 +37,7 @@ app.use(subcategoryRouter);
 app.use(productRouter);
 
 
-mongoose.connect(DB).then(()=>{
+mongoose.connect(process.env.DB).then(()=>{
     console.log('mongodb connected');
 });
 
