@@ -4,14 +4,14 @@ const express = require('express');
 const mongoose = require("mongoose");
 const dotenv = require('dotenv'); // Import dotenv to load environment variables
 
-const authRouter = require('./api/auth');
+const authRouter = require('./routes/auth');
 
-const helloRoute = require('./api/hello');
+const helloRoute = require('./routes/hello');
 
-const bannerRouter = require('./api/banner');
-const categoryRouter = require('./api/category');
-const subcategoryRouter = require('./api/sub_category');
-const productRouter = require('./api/product');
+const bannerRouter = require('./routes/banner');
+const categoryRouter = require('./routes/category');
+const subcategoryRouter = require('./routes/sub_category');
+const productRouter = require('./routes/product');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -32,7 +32,7 @@ app.use(helloRoute);
 app.use(express.json());
 app.use(authRouter);
 app.use(bannerRouter);
-app.use(categoryRouter);
+app.use('/api/categories', categoryRouter);
 app.use(subcategoryRouter);
 app.use(productRouter);
 
