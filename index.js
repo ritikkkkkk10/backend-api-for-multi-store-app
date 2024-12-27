@@ -2,6 +2,7 @@
 const express = require('express');
 
 const mongoose = require("mongoose");
+const dotenv = require('dotenv'); // Import dotenv to load environment variables
 
 const authRouter = require('./routes/auth');
 
@@ -12,15 +13,18 @@ const categoryRouter = require('./routes/category');
 const subcategoryRouter = require('./routes/sub_category');
 const productRouter = require('./routes/product');
 
-//Define  the port number the server will listen on
-const PORT = 3000;
+// Load environment variables from .env file
+dotenv.config();
+
+// Define port and database from environment variables
+const PORT = process.env.PORT || 3000;
+const DB = process.env.DB;
 
 //create an instance of an express application
 //because it give us the starting point
 
 const app = express();
 //mongodb String
-const DB = 
 //c
 
 //middleware - to register routes or to mount routes
